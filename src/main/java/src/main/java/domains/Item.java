@@ -5,13 +5,12 @@ public class Item {
 	private String concepto;
 	private TipoItem tipoItem;
 
-	public Item(double importe,String concepto) {
+	public Item(double importe,String concepto,TipoItem tipoitem) {
 		super();
 		// TODO Auto-generated constructor stub
 		this.setImporte(importe);
-		this.setConcepto(concepto);
-
-		
+		this.setConcepto(concepto);		
+		this.cambiarTipoA(tipoitem);
 	}
 
 	public double getImporte() {
@@ -37,6 +36,8 @@ public class Item {
 	public void cambiarTipoA(TipoItem tipoItem) {
 		this.tipoItem = tipoItem;
 	}
+	
+	
 	
 	
 	
