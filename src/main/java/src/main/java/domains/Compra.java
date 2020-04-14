@@ -3,16 +3,16 @@ package src.main.java.domains;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import src.main.java.exceptions.ElDocumentoNoEsRemito;
 import src.main.java.exceptions.LaOperacionEgresoEstaCerrada;
 
-public class Egreso implements Operacion {
+public class Compra implements Operacion {
 	private boolean cerrado;
 	private DocumentoComercial documentoComercial;
 	List<Item> items = new ArrayList<>();
 	
 	
-	public Egreso(boolean cerrado) {
+	public Compra(boolean cerrado) {
 		super();
 		this.cerrado = cerrado;
 	}
@@ -65,8 +65,14 @@ public class Egreso implements Operacion {
 
 		
 	}
-
-
+	
+	public void generarTipoDocumentoRemito(Compra compra) throws ElDocumentoNoEsRemito {
+		 if (!compra.items.stream().allMatch(it -> it.getTipoItem().getTipo().equals("Articulo"))){
+			 //error
+			 throw new ElDocumentoNoEsRemito();
+		 };
+		this.documentoComercial = new DocumentoComercial(new Remito());
+	 }
 	@Override
 	public void realizarOperacion(double gasto) {
 		// TODO Auto-generated method stub
