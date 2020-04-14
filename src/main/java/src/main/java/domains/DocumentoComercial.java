@@ -6,9 +6,8 @@ public class DocumentoComercial {
 
 	
 	public DocumentoComercial(TipoDocumento tipo) {
-		super();
 		// TODO Auto-generated constructor stub
-		this.tipo.generarTipo();
+		this.setTipo(tipo);
 	}
 
 	public TipoDocumento getTipo() {

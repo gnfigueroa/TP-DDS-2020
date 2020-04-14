@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import src.main.java.exceptions.LaOperacionEgresoEstaCerrada;
+import src.main.java.exceptions.LaOperacionEstaCerrada;
 
 public class Egreso implements Operacion {
 	private boolean cerrado;
@@ -54,9 +54,9 @@ public class Egreso implements Operacion {
 		return items.stream().mapToDouble(it -> it.getImporte()).sum();
 	}
 	
-	public void cambiarPrecio(String conceptoArticulo,double importe) throws LaOperacionEgresoEstaCerrada {
+	public void cambiarPrecio(String conceptoArticulo,double importe) throws LaOperacionEstaCerrada {
 		if (this.isCerrado()) {
-			throw new LaOperacionEgresoEstaCerrada();
+			throw new LaOperacionEstaCerrada();
 		}
 		//cambiar precio
 		this.items.stream()
